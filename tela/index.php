@@ -13,7 +13,7 @@ require_once('conexao.php');
 	<title>Tela de Login e Cadastro</title>
 </head>
 <body>
-	<div class="d-flex justify-content-around py-5">
+	<div class="d-flex justify-content-around" style="padding-top: 150px">
 		<form class="w-50 mx-3" method="POST" action="">
 			<div class="form-floating mb-2">
 				<input type="email" name="email" id="email" placeholder="Seu Email" class="form-control">
@@ -23,17 +23,18 @@ require_once('conexao.php');
 				<input type="password" name="senha" id="senha" placeholder="Sua Senha" class="form-control">
 				<label>Senha</label>
 			</div>
-			<div class="d-flex justify-content-around">
+			<div class="d-block mt-4">
 				<div>
-					<button class="btn btn-success w-100">Entrar</button>
+					<button class="btn btn-success w-25">Entrar</button>
 				</div>
+				<hr>
 				<div>
-					<button class="btn btn-secondary">Cadastre-se</button>
+					<a href="cadastro.php" class="btn btn-secondary w-25">Cadastre-se</a>
 				</div>
 			</div>
 		</form>
-		<div class="w-50">
-			<h1>Olá</h1>
+		<div class="w-50 text-center py-5">
+			<h1>SUA LOGO</h1>
 		</div>
 	</div>
 </body>
