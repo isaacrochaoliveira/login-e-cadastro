@@ -29,6 +29,17 @@ $res->bindValue(':email', $email);
 $res->bindValue(':senha', $senha);
 $res->execute();
 
-echo "Salvo com Sucesso!";
+
+$query = $pdo->query("SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+if (count($res) > 0) {
+    $nome = $res[o]['nome'];
+    $nasc = $res[0]['nasc'];
+    $email = $res[0]['email'];
+    $senha = $res[0]['senha'];
+}
+
+$dados = "Salvo com Sucesso!#@-/$nome#@-/$nasc#@-/$email#@-/$senha";
+echo "$dados";
 
 ?>
