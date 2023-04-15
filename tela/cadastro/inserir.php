@@ -31,15 +31,23 @@ $res->execute();
 
 
 $query = $pdo->query("SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-if (count($res) > 0) {
-    $nome = $res[o]['nome'];
-    $nasc = $res[0]['nasc'];
-    $email = $res[0]['email'];
-    $senha = $res[0]['senha'];
+$res_ = $query->fetchAll(PDO::FETCH_ASSOC);
+if (count($res_) > 0) {
+    $nome = $res_[0]['nome'];
+    $nasc = $res_[0]['nasc'];
+    $email = $res_[0]['email'];
+    $senha = $res_[0]['senha'];
+    
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+    $_SESSION['senha'] = $senha;
 }
 
-$dados = "Salvo com Sucesso!#@-/$nome#@-/$nasc#@-/$email#@-/$senha";
+$dados = "Salvo com Sucesso!";
 echo "$dados";
 
 ?>

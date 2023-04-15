@@ -65,20 +65,10 @@ $pag = "cadastro";
                 data: $('form').serialize(),
                 dataType: 'html',
                 success: function(result) {
-                    if (result.trim() == "Salvo com Sucesso!") {
-                        var array = result.split('#@-/');
-                        if (!isset($_SESSION)) {
-                            session_start();   
-                        }
-                        
-                        $_SESSION['nome'] = array[1];
-                        $_SESSION['nasc'] = array[2];
-                        $_SESSION['email'] = array[3];
-                        $_SESSION['senha'] = array[4];
-                        
+                    if (result.trim*() == "Salvo com Sucesso!") {
                         window.href = 'painel/index.php';
                     } else {
-                        alert(msg);
+                        alert(result);
                     }
                 }
             })
