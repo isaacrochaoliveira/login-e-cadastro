@@ -22,11 +22,12 @@ if ($senha == 7) {
     exit();
 }
 
-$res = $pdo->query("INSERT INTO usuarios SET nome = :nome, nasc = :nasc, email = :email, senha = :senha");
+$res = $pdo->prepare("INSERT INTO usuarios SET nome = :nome, nasc = :nasc, email = :email, senha = :senha");
 $res->bindValue(':nome', $nome);
 $res->bindValue(':nasc', $nasc);
 $res->bindValue(':email', $email);
 $res->bindValue(':senha', $senha);
+$res->execute();
 
 echo "Salvo com Sucesso!";
 
