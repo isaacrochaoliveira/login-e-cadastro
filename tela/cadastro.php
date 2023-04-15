@@ -65,8 +65,8 @@ $pag = "cadastro";
                 data: $('form').serialize(),
                 dataType: 'html',
                 success: function(result) {
-                    if (result.trim*() == "Salvo com Sucesso!") {
-                        window.href = 'painel/index.php';
+                    if (result.trim() == "Salvo com Sucesso!") {
+                        window.location = 'painel/index.php';
                     } else {
                         alert(result);
                     }

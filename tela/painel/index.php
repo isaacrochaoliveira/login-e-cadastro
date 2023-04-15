@@ -1,6 +1,7 @@
 <?php
 
-require_once('../conexar.php');
+require_once('../conexao.php');
+require_once('../protect.php');
 @session_start();
 
 ?>
@@ -16,5 +17,6 @@ require_once('../conexar.php');
     <body>
         <h1>Olá <?=$_SESSION['nome']?></h1>
         <p><?=$_SESSION['email']?></p>
+        <a href="../logout.php">SAIR</a>
     </body>
 </html>

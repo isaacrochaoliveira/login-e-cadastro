@@ -4,7 +4,7 @@ require_once('../conexao.php');
 
 $nome = addslashes($_POST['nome']);
 $nasc = addslashes(($_POST['nasc']));
-$email = addslashes($_POST['nasc']);
+$email = addslashes($_POST['email']);
 $senha = addslashes($_POST['senha']);
 
 if ($nome == "") {
@@ -37,11 +37,13 @@ if (count($res_) > 0) {
     $nasc = $res_[0]['nasc'];
     $email = $res_[0]['email'];
     $senha = $res_[0]['senha'];
+    $id = $res_[0]['id'];
     
     if (!isset($_SESSION)) {
         session_start();
     }
     
+    $_SESSION['id'] = $id;
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
     $_SESSION['senha'] = $senha;
