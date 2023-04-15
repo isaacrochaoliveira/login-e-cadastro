@@ -1,5 +1,11 @@
+<?php
+
+require_once('conexao.php');
+
+$pag = "cadastro";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,8 +42,37 @@
                         <input type="date" name="nasc" id="nasc" class="form-control" value="<?=Date('Y-m-d')?>">
                     </div>
                 </div>
+                <div class="d-flex justify-content-around mt-3">
+                    <div>
+                        <button type="button" name="btnCadastro" id="btnCadastro" class="btn btn-success">Salvar & Entrar</button>
+                    </div>
+                    <div>
+                        <a href="index.php">Já tem uma conta?</a>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#btnCadastro').click(function() {
+            var pag = "<?=$pag?>";
+            $.ajax({
+                url: pag + '/inserir.php',
+                method: 'post',
+                data: $('form').serialize(),
+                dataType: 'html',
+                success: function(msg) {
+                    if (msg.trim() == "Salvo com Sucesso!") {
+                        alert(msg);
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        })
+    })
+</script>
 </html>
