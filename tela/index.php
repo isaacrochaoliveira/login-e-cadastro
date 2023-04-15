@@ -1,7 +1,7 @@
 <?php
 
 require_once('conexao.php');
-
+$pag = "index";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ require_once('conexao.php');
 			</div>
 			<div class="d-block mt-4">
 				<div>
-					<button class="btn btn-success w-25">Entrar</button>
+					<button class="btn btn-success w-25" nam="btnLogin" id="btnLogin">Entrar</button>
 				</div>
 				<hr>
 				<div>
@@ -38,4 +38,26 @@ require_once('conexao.php');
 		</div>
 	</div>
 </body>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#btnLogin").click(function() {
+            var pag = "<?=$pag?>";
+            $.ajax({
+                url: pag + '/logar.php',
+                method: 'post',
+                data: $('#form').serialize(),
+                dataType: 'text',
+                success: function(msg) {
+                    if (msg.trim() == "Logado com Sucesso!") {
+                        window.location = 'painel/index.php';
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        })
+    })
+</script>
 </html>
