@@ -17,7 +17,23 @@
                 <div class="row">
                     <div class="col">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control" >
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Informe seu nome">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Informe o seu email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" class="form-control" placeholder="Sua senha">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <label for="nasc">Data de Nascimento</label>
+                        <input type="date" name="nasc" id="nasc" class="form-control" value="<?=Date('Y-m-d')?>">
                     </div>
                 </div>
             </div>
