@@ -14,7 +14,7 @@ $pag = "index";
 </head>
 <body>
 	<div class="d-flex justify-content-around" style="padding-top: 150px">
-		<form class="w-50 mx-3" method="POST" action="">
+		<form class="w-50 mx-3" method="POST" action="#">
 			<div class="form-floating mb-2">
 				<input type="email" name="email" id="email" placeholder="Seu Email" class="form-control">
 				<label>Email</label>
